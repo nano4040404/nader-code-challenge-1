@@ -18,17 +18,17 @@
         app:lottie_rawRes="@raw/welcome" />
 
     <Button
-        android:id="@+id/btn_logout"
+        android:id="@+id/logoutBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Logout"
         android:layout_margin="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_namelast" />
+        app:layout_constraintTop_toBottomOf="@+id/fullNameField" />
 
     <TextView
-        android:id="@+id/et_namelast"
+        android:id="@+id/fullNameField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"

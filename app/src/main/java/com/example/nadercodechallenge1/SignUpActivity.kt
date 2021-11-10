@@ -7,37 +7,29 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
+import com.example.nadercodechallenge1.databinding.ActivitySignUpBinding
 import com.google.android.material.textfield.TextInputEditText
 import es.dmoral.toasty.Toasty
-import java.util.regex.Pattern
 
 class SignUpActivity : AppCompatActivity() {
-    private val et_firstname by lazy { findViewById<TextInputEditText>(R.id.et_firstname)}
-    private val et_lastname by lazy { findViewById<TextInputEditText>(R.id.et_lastname)}
-    private val et_email by lazy { findViewById<TextInputEditText>(R.id.et_email)}
-    private val et_password by lazy { findViewById<TextInputEditText>(R.id.et_password)}
-    private val et_confirmpassword by lazy { findViewById<TextInputEditText>(R.id.et_confirmpassword)}
-    private val btn_signup by lazy { findViewById<Button>(R.id.btn_signup)}
+    private lateinit var binding: ActivitySignUpBinding
 
-    lateinit var shared : SharedPreferences
-
-
-    //et_firstname
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_up)
+        binding = ActivitySignUpBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
-        shared = getSharedPreferences("logindata" , Context.MODE_PRIVATE)
-
-        btn_signup.setOnClickListener{
+        binding.signupBtn.setOnClickListener{
             if(checkAllFields()){
-                val edit = shared.edit()
-                edit.putString("firstname" , et_firstname.text.toString().trim())
-                edit.putString("lastname" , et_lastname.text.toString().trim())
-                edit.putString("email" , et_email.text.toString().trim())
-                edit.putString("password" , et_password.text.toString().trim())
-                edit.apply()
-                Toasty.success(this, "Success! ${shared.getString("email","")}", Toast.LENGTH_SHORT, true).show()
+                val account:HashMap<String,String> = HashMap()
+                account["firstname"] = binding.firstNameField.getTextTrimed()
+                account["lastname"] = binding.lastNameField.getTextTrimed()
+                account["email"] = binding.emailField.getTextTrimed()
+                account["password"] = binding.passwordField.getTextTrimed()
+                addDataToPrefs(account)
+
+                Toasty.success(this, "Success! ${account["email"]}", Toast.LENGTH_SHORT, true).show()
                 this.finish()
             }else{
                 Toasty.error(this, "Error! one of the field does not match input requirement", Toast.LENGTH_SHORT, true).show()
@@ -48,11 +40,11 @@ class SignUpActivity : AppCompatActivity() {
 
     //check all fields
     fun checkAllFields() : Boolean{
-        val firstName = et_firstname.text.toString().trim()
-        val lastName = et_lastname.text.toString().trim()
-        val email = et_email.text.toString().trim()
-        val password = et_password.text.toString().trim()
-        val passwordConf = et_confirmpassword.text.toString().trim()
+        val firstName = binding.firstNameField.getTextTrimed()
+        val lastName = binding.lastNameField.getTextTrimed()
+        val email = binding.emailField.getTextTrimed()
+        val password = binding.passwordField.getTextTrimed()
+        val passwordConf = binding.confirmPasswordField.getTextTrimed()
 
         var emailfield = false
         var passwordfield = false
@@ -60,59 +52,32 @@ class SignUpActivity : AppCompatActivity() {
         var fnamefield = false
         var lnamefield = false
 
-        if(isValidEmail(email)){
+        if(ValidationManager.isValidEmail(email)){
             emailfield =true
         }else{
-            et_email.error = "Please enter a valid email"
+            binding.emailField.error = "Please enter a valid email"
         }
-        if(isValidPassword(password)){
+        if(ValidationManager.isValidPassword(password)){
             passwordfield =true
         }else{
-            et_password.error = "Wrong format"
+            binding.passwordField.error = "Wrong format"
         }
-        if(isPasswordMatch(password,passwordConf)){
+        if(ValidationManager.isPasswordMatch(password,passwordConf)){
             matchpasswordfield =true
         }else{
-            et_confirmpassword.error = "Passwords does not match"
+            binding.confirmPasswordField.error = "Passwords does not match"
         }
-        if(isFieldValid(firstName)){
+        if(ValidationManager.isFieldValid(firstName)){
             fnamefield =true
         }else{
-            et_firstname.error = "Enter a valid name"
+            binding.firstNameField.error = "Enter a valid name"
         }
-        if(isFieldValid(lastName)){
+        if(ValidationManager.isFieldValid(lastName)){
             lnamefield =true
         }else{
-            et_lastname.error = "Enter a valid name"
+            binding.lastNameField.error = "Enter a valid name"
         }
         return emailfield && passwordfield && matchpasswordfield && fnamefield && lnamefield
-    }
-
-    //check if email is valid
-    fun isValidEmail(email: String?) : Boolean{
-        val pattern = Pattern.compile("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}")
-        val match = pattern.matcher(email)
-        return match.matches()
-    }
-
-    //check if password is valid: contain at least 8 chars+at least 1 capital +speacial character
-    fun isValidPassword(password: String?) : Boolean {
-        password?.let {
-            val passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$"
-            val passwordMatcher = Regex(passwordPattern)
-            return passwordMatcher.find(password) != null
-        } ?: return false
-    }
-
-    fun isPasswordMatch(password1: String,password2: String) : Boolean{
-        return password1 == password2
-    }
-
-    fun isFieldValid(field: String) : Boolean {
-        if (field.length >=3){
-            return true
-        }
-        return false
     }
 
 

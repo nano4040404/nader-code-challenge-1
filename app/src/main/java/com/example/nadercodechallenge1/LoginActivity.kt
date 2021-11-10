@@ -9,42 +9,37 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
+import com.example.nadercodechallenge1.databinding.ActivityLoginBinding
+import com.example.nadercodechallenge1.databinding.ActivitySignUpBinding
+import com.example.nadercodechallenge1.databinding.ActivityWelcomeBinding
 import com.google.android.material.textfield.TextInputEditText
 import es.dmoral.toasty.Toasty
 import java.util.regex.Pattern
 
 class LoginActivity : AppCompatActivity() {
 
-    private val loginBtn by lazy { findViewById<Button>(R.id.loginBtn) }
-    private val et_password by lazy { findViewById<TextInputEditText>(R.id.et_password)}
-    private val et_email by lazy { findViewById<TextInputEditText>(R.id.et_email)}
-    private val btn_signup by lazy { findViewById<Button>(R.id.btn_signup)}
-
-    lateinit var shared : SharedPreferences
+    private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
-        shared = getSharedPreferences("logindata" , Context.MODE_PRIVATE)
-        val account = shared.getString("email",null)
-        if (account != null){
+        if (checkAccount()){
             startActivity(Intent(this, WelcomeActivity::class.java))
             this.finish()
         }
-        btn_signup.setOnClickListener {
+        binding.signupBtn.setOnClickListener {
             startActivity(Intent(this, SignUpActivity::class.java))
         }
 
-        loginBtn.setOnClickListener {
+        binding.loginBtn.setOnClickListener {
 
-            val sharedemail : String? = shared.getString("email",null)
-            val sharedpass : String? = shared.getString("password",null)
-            if(sharedemail.equals(et_email.text.toString().trim()) &&
-                sharedpass.equals(et_password.text.toString().trim())){
+            if(verifyAccount(binding.emailField.getTextTrimed(),binding.passwordField.getTextTrimed())){
                 startActivity(Intent(this, WelcomeActivity::class.java))
                 this.finish()
-                Toasty.success(this, "Success! Welcome ${shared.getString("firstname","")}", Toast.LENGTH_SHORT, true).show()
+                Toasty.success(this, "Success! Welcome ${getCurrentAccount().firstName}", Toast.LENGTH_SHORT, true).show()
             }else{
                 Toasty.error(this, "Error! User does not exist", Toast.LENGTH_SHORT, true).show()
             }

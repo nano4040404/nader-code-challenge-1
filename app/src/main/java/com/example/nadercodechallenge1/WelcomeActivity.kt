@@ -8,27 +8,25 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import com.example.nadercodechallenge1.databinding.ActivitySignUpBinding
+import com.example.nadercodechallenge1.databinding.ActivityWelcomeBinding
 import es.dmoral.toasty.Toasty
 
 class WelcomeActivity : AppCompatActivity() {
-    lateinit var shared : SharedPreferences
-    private val btn_logout by lazy { findViewById<Button>(R.id.btn_logout)}
-    private val et_namelast by lazy { findViewById<TextView>(R.id.et_namelast) }
+
+    private lateinit var binding: ActivityWelcomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_welcome)
+        binding = ActivityWelcomeBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
-        shared = getSharedPreferences("logindata" , Context.MODE_PRIVATE)
+        val account = getCurrentAccount()
 
-        et_namelast.text = "Welcome ${shared.getString("firstname","")} ${shared.getString("lastname","")}"
-        btn_logout.setOnClickListener{
-            val edit = shared.edit()
-            edit.remove("firstname")
-            edit.remove("lastname")
-            edit.remove("email")
-            edit.remove("password")
-            edit.apply()
+        binding.fullNameField.text = "Welcome ${account.firstName} ${account.LastName}"
+        binding.logoutBtn.setOnClickListener{
+            deleteAccount()
             Toasty.warning(this, "Account removed", Toast.LENGTH_SHORT, true).show()
             startActivity(Intent(this, LoginActivity::class.java))
             this.finish()

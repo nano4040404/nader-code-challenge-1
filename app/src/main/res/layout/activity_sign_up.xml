@@ -29,7 +29,7 @@
         app:layout_constraintTop_toBottomOf="@+id/lottieAnimationView">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_firstname"
+            android:id="@+id/firstNameField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/txt_field"/>
@@ -46,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_lastname"
+            android:id="@+id/lastNameField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/txt_field"/>
@@ -63,7 +63,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_email"
+            android:id="@+id/emailField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
@@ -81,7 +81,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout4">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_password"
+            android:id="@+id/passwordField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
@@ -100,7 +100,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout5">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_confirmpassword"
+            android:id="@+id/confirmPasswordField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
@@ -109,7 +109,7 @@
 
 
     <Button
-        android:id="@+id/btn_signup"
+        android:id="@+id/signupBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
