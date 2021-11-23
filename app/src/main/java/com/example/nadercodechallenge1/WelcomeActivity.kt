@@ -22,15 +22,8 @@ class WelcomeActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        val account = getCurrentAccount()
 
-        binding.fullNameField.text = "Welcome ${account.firstName} ${account.LastName}"
-        binding.logoutBtn.setOnClickListener{
-            deleteAccount()
-            Toasty.warning(this, "Account removed", Toast.LENGTH_SHORT, true).show()
-            startActivity(Intent(this, LoginActivity::class.java))
-            this.finish()
-        }
+
 
     }
 }
