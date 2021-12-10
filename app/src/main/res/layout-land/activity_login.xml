@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".ui.login.LoginActivity">
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottieAnimationView"
@@ -23,7 +23,7 @@
         android:id="@+id/textInputLayout"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:hint="email"
+        android:hint="@string/email"
         android:layout_marginTop="24dp"
         android:layout_marginBottom="16dp"
         app:layout_constraintEnd_toStartOf="@+id/lottieAnimationView"
@@ -42,7 +42,7 @@
         android:id="@+id/password_text_input"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:hint="password"
+        android:hint="@string/password"
         app:errorEnabled="true"
         android:layout_margin="16dp"
         app:layout_constraintEnd_toStartOf="@+id/lottieAnimationView"
@@ -62,7 +62,7 @@
         android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:background="@drawable/btn_shape"
-        android:text="login"
+        android:text="@string/login"
         android:layout_margin="16dp"
         android:textColor="@color/white"
         app:layout_constraintEnd_toStartOf="@+id/lottieAnimationView"
@@ -73,7 +73,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Don't have an account? "
+        android:text="@string/donthave"
         android:layout_margin="16dp"
         app:layout_constraintEnd_toStartOf="@+id/lottieAnimationView"
         app:layout_constraintStart_toStartOf="parent"

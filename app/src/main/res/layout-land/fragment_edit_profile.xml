@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditProfileFragment">
+    tools:context=".ui.editprofile.EditProfileFragment">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/profileImageView"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="@dimen/profilePictureLarge"
+        android:layout_height="@dimen/profilePictureLarge"
         android:layout_margin="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +30,7 @@
             android:id="@+id/textInputLayout7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="First Name"
+            android:hint="@string/firstname"
             android:layout_margin="16dp"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="216dp">
@@ -47,7 +47,7 @@
             android:id="@+id/textInputLayout8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Last Name"
+            android:hint="@string/lastname"
             android:layout_margin="16dp"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="288dp">
@@ -67,7 +67,7 @@
             android:background="@drawable/edit_text_field"
             android:gravity="center_vertical"
             android:layout_margin="16dp"
-            android:text="Email"
+            android:text="@string/email"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="359dp" />
 
@@ -75,7 +75,7 @@
             android:id="@+id/submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Submit"
+            android:text="@string/submit"
             android:layout_margin="16dp"
             android:textColor="@color/white"
             tools:layout_editor_absoluteX="16dp"

@@ -1,6 +1,25 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">nader code challenge 1</string>
 
     <string name="signup_btn"><u>SignUp</u></string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="submit">Submit</string>
+
+    <string name="editprofile">Edit Profile</string>
+    <string name="changepass">Change Password</string>
+    <string name="aboutus">About Us</string>
+
+    <string name="firstname">First Name</string>
+    <string name="lastname">Last Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+
+    <string name="oldpass">Old Password</string>
+    <string name="newpass">New Password</string>
+    <string name="confpass">Confirm Password</string>
+
+    <string name="fromgalery">From Gallery</string>
+    <string name="fromcamera">From Camera</string>
+
+    <string name="login">Login</string>
+    <string name="donthave" >Dont have an account?</string>
 </resources>

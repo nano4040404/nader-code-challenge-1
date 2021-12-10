@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".MoreFragment">
+    tools:context=".ui.more.MoreFragment">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/profileImageView"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="@dimen/profilePicture"
+        android:layout_height="@dimen/profilePicture"
         android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,21 +33,21 @@
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
             android:layout_gravity="center_vertical|center_horizontal"
-            android:text="Edit profile"/>
+            android:text="@string/editprofile"/>
         <com.google.android.material.button.MaterialButton
             android:id="@+id/changePasswordBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
             android:layout_gravity="center_vertical|center_horizontal"
-            android:text="Change password"/>
+            android:text="@string/changepass"/>
         <com.google.android.material.button.MaterialButton
             android:id="@+id/aboutUsBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
             android:layout_gravity="center_vertical|center_horizontal"
-            android:text="About us"/>
+            android:text="@string/aboutus"/>
 
     </LinearLayout>
 

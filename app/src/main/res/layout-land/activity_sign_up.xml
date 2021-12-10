@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUpActivity">
+    tools:context=".ui.signup.SignUpActivity">
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottieAnimationView"
@@ -20,7 +20,7 @@
         android:id="@+id/textInputLayout2"
         android:layout_width="440dp"
         android:layout_height="wrap_content"
-        android:hint="First Name"
+        android:hint="@string/firstname"
         android:layout_margin="8dp"
         app:layout_constraintEnd_toStartOf="@+id/lottieAnimationView"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +37,7 @@
         android:id="@+id/textInputLayout3"
         android:layout_width="440dp"
         android:layout_height="wrap_content"
-        android:hint="Last Name"
+        android:hint="@string/lastname"
         android:layout_margin="8dp"
         app:layout_constraintEnd_toStartOf="@+id/lottieAnimationView"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,7 +54,7 @@
         android:id="@+id/textInputLayout4"
         android:layout_width="440dp"
         android:layout_height="wrap_content"
-        android:hint="email"
+        android:hint="@string/email"
         android:layout_margin="8dp"
         app:layout_constraintEnd_toStartOf="@+id/lottieAnimationView"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +72,7 @@
         android:id="@+id/textInputLayout5"
         android:layout_width="440dp"
         android:layout_height="wrap_content"
-        android:hint="Password"
+        android:hint="@string/password"
         android:layout_margin="8dp"
         app:layout_constraintEnd_toStartOf="@+id/lottieAnimationView"
         app:layout_constraintStart_toStartOf="parent"
@@ -91,7 +91,7 @@
         android:id="@+id/textInputLayout6"
         android:layout_width="440dp"
         android:layout_height="wrap_content"
-        android:hint="Confirm Password"
+        android:hint="@string/confpass"
         android:layout_margin="8dp"
         app:layout_constraintEnd_toStartOf="@+id/lottieAnimationView"
         app:layout_constraintStart_toStartOf="parent"
