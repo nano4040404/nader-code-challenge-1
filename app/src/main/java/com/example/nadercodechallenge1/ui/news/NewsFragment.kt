@@ -55,7 +55,10 @@ class NewsFragment : ScopedFragment(), KodeinAware {
         navController = Navigation.findNavController(view)
         bindUI()
 
-
+        binding.NYItemsListRefresh.setOnRefreshListener {
+            binding.newsLottieAnimationView.setVisibility(true)
+            refreshUI()
+        }
 
 //        val nyApi = NYApiService(ConnectivityInterceptorImpl(this.requireContext()))
 //        val dataSource = NYTimesDataSourceImpl(nyApi)
@@ -87,6 +90,20 @@ class NewsFragment : ScopedFragment(), KodeinAware {
             binding.newsRecyclerView.layoutManager = layoutManager
             adapter = NewsRecyclerAdapter(it,navController)
             binding.newsRecyclerView.adapter = adapter
+
+        })
+    }
+
+    private fun refreshUI()= launch(Dispatchers.Main){
+        val currentArticle = viewModel.article.await()
+
+        currentArticle.observe(viewLifecycleOwner, {
+            if (it == null) return@observe
+
+            binding.newsLottieAnimationView.setVisibility(false)
+            adapter = NewsRecyclerAdapter(it,navController)
+            binding.newsRecyclerView.adapter = adapter
+            binding.NYItemsListRefresh.isRefreshing = false
 
         })
     }
