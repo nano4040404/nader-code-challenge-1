@@ -59,24 +59,6 @@ class NewsFragment : ScopedFragment(), KodeinAware {
             binding.newsLottieAnimationView.setVisibility(true)
             refreshUI()
         }
-
-//        val nyApi = NYApiService(ConnectivityInterceptorImpl(this.requireContext()))
-//        val dataSource = NYTimesDataSourceImpl(nyApi)
-//        dataSource.downloadedCurrentArticle.observe(viewLifecycleOwner,{
-//            layoutManager = LinearLayoutManager(this.requireContext())
-//            binding.newsRecyclerView.layoutManager = layoutManager
-//
-//            adapter = NewsRecyclerAdapter(it)
-//            binding.newsRecyclerView.adapter = adapter
-//
-//
-//        })
-//        GlobalScope.launch(Dispatchers.Main) {
-//            val test = dataSource.fetchCurrentArticle("emailed",7)
-//        }
-
-
-
     }
 
     private fun bindUI()= launch(Dispatchers.Main){
