@@ -1,12 +1,15 @@
 package com.example.nadercodechallenge1.ui.login
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.nadercodechallenge1.databinding.ActivityLoginBinding
-import com.example.nadercodechallenge1.ui.*
+import com.example.nadercodechallenge1.ui.checkAccount
+import com.example.nadercodechallenge1.ui.getCurrentAccount
+import com.example.nadercodechallenge1.ui.getTextTrimed
 import com.example.nadercodechallenge1.ui.signup.SignUpActivity
+import com.example.nadercodechallenge1.ui.verifyAccount
 import com.example.nadercodechallenge1.ui.welcome.WelcomeActivity
 import es.dmoral.toasty.Toasty
 

@@ -8,8 +8,9 @@ import androidx.annotation.RequiresApi
 import com.example.nadercodechallenge1.internal.NoConnectivityExceptions
 import okhttp3.Interceptor
 import okhttp3.Response
+import javax.inject.Inject
 
-class ConnectivityInterceptorImpl(
+class ConnectivityInterceptorImpl @Inject constructor(
     context: Context
 ) : ConnectivityInterceptor {
 

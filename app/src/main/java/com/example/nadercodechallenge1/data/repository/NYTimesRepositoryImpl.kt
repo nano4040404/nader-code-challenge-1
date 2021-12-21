@@ -2,7 +2,6 @@ package com.example.nadercodechallenge1.data.repository
 
 import androidx.lifecycle.LiveData
 import com.example.nadercodechallenge1.data.db.CurrentArticleDao
-import com.example.nadercodechallenge1.data.db.current.ArticleEntry
 import com.example.nadercodechallenge1.data.db.current.CurrentArticleEntry
 import com.example.nadercodechallenge1.data.network.NYTimesDataSource
 import com.example.nadercodechallenge1.data.network.responce.MostViewedSectionResponce
@@ -10,11 +9,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.threeten.bp.LocalDate
-import org.threeten.bp.ZonedDateTime
+import javax.inject.Inject
 
 
-class NYTimesRepositoryImpl(
+class NYTimesRepositoryImpl @Inject constructor(
     private val  currentArticleDao: CurrentArticleDao,
     private val nyTimesDataSource: NYTimesDataSource
 ) : NYTimesRepository {

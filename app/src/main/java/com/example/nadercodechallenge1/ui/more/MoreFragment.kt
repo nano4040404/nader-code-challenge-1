@@ -1,7 +1,6 @@
 package com.example.nadercodechallenge1.ui.more
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,10 +8,11 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.nadercodechallenge1.R
 import com.example.nadercodechallenge1.databinding.FragmentMoreBinding
+import com.example.nadercodechallenge1.ui.base.DefaultFragment
 import com.example.nadercodechallenge1.ui.getImage
 
 
-class MoreFragment : Fragment() {
+class MoreFragment : DefaultFragment() {
     private var _binding: FragmentMoreBinding? = null
     private val binding get() = _binding!!
     private lateinit var navController: NavController

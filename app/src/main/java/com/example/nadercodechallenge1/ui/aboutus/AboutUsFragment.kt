@@ -1,18 +1,19 @@
 package com.example.nadercodechallenge1.ui.aboutus
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.nadercodechallenge1.databinding.FragmentAboutUsBinding
+import com.example.nadercodechallenge1.ui.base.DefaultFragment
 
 
-class AboutUsFragment : Fragment() {
+class AboutUsFragment : DefaultFragment() {
     private var _binding: FragmentAboutUsBinding? = null
     private val binding get() = _binding!!
     private lateinit var navController: NavController

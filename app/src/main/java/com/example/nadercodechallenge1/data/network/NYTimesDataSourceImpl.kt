@@ -5,8 +5,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.nadercodechallenge1.data.network.responce.MostViewedSectionResponce
 import com.example.nadercodechallenge1.internal.NoConnectivityExceptions
+import javax.inject.Inject
 
-class NYTimesDataSourceImpl(
+class NYTimesDataSourceImpl @Inject constructor(
     private val nyApiService: NYApiService
 ) : NYTimesDataSource {
 

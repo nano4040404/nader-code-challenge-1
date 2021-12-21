@@ -9,26 +9,19 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.nadercodechallenge1.R
-import com.example.nadercodechallenge1.data.network.ConnectivityInterceptorImpl
-import com.example.nadercodechallenge1.data.network.NYApiService
-import com.example.nadercodechallenge1.data.network.NYTimesDataSourceImpl
-import com.example.nadercodechallenge1.databinding.FragmentMoreBinding
 import com.example.nadercodechallenge1.databinding.FragmentNewsBinding
+import com.example.nadercodechallenge1.di.AppModule
 import com.example.nadercodechallenge1.ui.base.ScopedFragment
 import com.example.nadercodechallenge1.ui.setVisibility
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import org.kodein.di.KodeinAware
-import org.kodein.di.android.x.closestKodein
-import org.kodein.di.generic.instance
+import javax.inject.Inject
 
 
-class NewsFragment : ScopedFragment(), KodeinAware {
+class NewsFragment : ScopedFragment() {
 
-    override val kodein by closestKodein()
-    private val viewModelFactory: NewsViewModelFactory by instance()
+    @Inject
+    lateinit var viewModelFactory: NewsViewModelFactory
 
     private var _binding: FragmentNewsBinding? = null
     private val binding get() = _binding!!
@@ -50,6 +43,8 @@ class NewsFragment : ScopedFragment(), KodeinAware {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        viewModelFactory = AppModule().getNewsViewModelFactory()
         viewModel = ViewModelProvider(this,viewModelFactory).get(NewsViewModel::class.java)
         binding.newsLottieAnimationView.setVisibility(true)
         navController = Navigation.findNavController(view)

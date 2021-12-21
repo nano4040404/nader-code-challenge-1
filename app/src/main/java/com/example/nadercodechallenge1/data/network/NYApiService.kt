@@ -1,6 +1,5 @@
 package com.example.nadercodechallenge1.data.network
 
-import com.example.nadercodechallenge1.data.network.ConnectivityInterceptor
 import com.example.nadercodechallenge1.data.network.responce.MostViewedSectionResponce
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.coroutines.Deferred
@@ -12,17 +11,19 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 const val API_KEY = "kR3JfuNcVHzlgeKzMZGvLkzrY9Tr1bje"
+const val URL_ADDITIONS = "{section}/{period}.json"
+const val BASE_URL = "https://api.nytimes.com/svc/mostpopular/v2/"
 
 //https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=kR3JfuNcVHzlgeKzMZGvLkzrY9Tr1bje
 interface NYApiService {
-    @GET(value = "{section}/{period}.json")
+    @GET(value = URL_ADDITIONS)
     fun getMostViewed(@Path("section") section: String,
                       @Path("period") period: Int): Deferred<MostViewedSectionResponce>
 
     companion object{
         operator fun invoke(
             connectivityInterceptor: ConnectivityInterceptor
-        ):NYApiService{
+        ): NYApiService {
             val requestInterceptor = Interceptor{chain ->
                 val url = chain.request()
                     .url()
@@ -42,7 +43,7 @@ interface NYApiService {
 
             return  Retrofit.Builder()
                 .client(okHttpClient)
-                .baseUrl("https://api.nytimes.com/svc/mostpopular/v2/")
+                .baseUrl(BASE_URL)
                 .addCallAdapterFactory(CoroutineCallAdapterFactory())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
