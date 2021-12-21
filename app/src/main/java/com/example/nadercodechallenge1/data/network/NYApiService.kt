@@ -1,6 +1,9 @@
 package com.example.nadercodechallenge1.data.network
 
 import com.example.nadercodechallenge1.data.network.responce.MostViewedSectionResponce
+import com.example.nadercodechallenge1.internal.Utils.AppConstants.API_KEY
+import com.example.nadercodechallenge1.internal.Utils.AppConstants.BASE_URL
+import com.example.nadercodechallenge1.internal.Utils.AppConstants.URL_ADDITIONS
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.coroutines.Deferred
 import okhttp3.Interceptor
@@ -10,9 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-const val API_KEY = "kR3JfuNcVHzlgeKzMZGvLkzrY9Tr1bje"
-const val URL_ADDITIONS = "{section}/{period}.json"
-const val BASE_URL = "https://api.nytimes.com/svc/mostpopular/v2/"
+
 
 //https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=kR3JfuNcVHzlgeKzMZGvLkzrY9Tr1bje
 interface NYApiService {
