@@ -1,16 +1,15 @@
 package com.example.nadercodechallenge1.ui
 
+import android.R
 import android.content.Context
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.ImageDecoder
 import android.net.Uri
 import android.os.Build
 import android.provider.MediaStore
-import java.io.ByteArrayOutputStream
-import android.R
-
-import android.graphics.BitmapFactory
 import android.util.Base64
+import java.io.ByteArrayOutputStream
 
 
 fun Uri.toBitmap(context: Context):Bitmap{

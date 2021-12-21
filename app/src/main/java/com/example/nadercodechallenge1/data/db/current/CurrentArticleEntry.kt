@@ -1,35 +1,28 @@
 package com.example.nadercodechallenge1.data.db.current
 
-import androidx.room.ColumnInfo
+import com.example.nadercodechallenge1.data.db.current.CurrentArticleEntry.DbConstants.EMPTY_INT
+import com.example.nadercodechallenge1.data.db.current.CurrentArticleEntry.DbConstants.EMPTY_STRING
 
 data class CurrentArticleEntry(
-    @ColumnInfo(name = "abstract")
-    override var abstract: String,
-    @ColumnInfo(name = "byline")
-    override var byline: String,
-    @ColumnInfo(name = "nytdsection")
-    override var nytdsection: String,
-    @ColumnInfo(name = "publishedDate")
-    override var publishedDate: String,
-    @ColumnInfo(name = "section")
-    override var section: String,
-    @ColumnInfo(name = "source")
-    override var source: String,
-    @ColumnInfo(name = "subsection")
-    override var subsection: String,
-    @ColumnInfo(name = "title")
-    override var title: String,
-    @ColumnInfo(name = "type")
-    override var type: String,
-    @ColumnInfo(name = "updated")
-    override var updated: String,
-    @ColumnInfo(name = "uri")
-    override var uri: String,
-    @ColumnInfo(name = "url")
-    override var url: String,
-    @ColumnInfo(name = "id")
-    override var id: Long
-):ArticleEntry{
-    constructor() : this("","","","","","","","","",
-        "","","",0)
+    var abstract: String?,
+    var byline: String?,
+    var nytdsection: String?,
+    var publishedDate: String?,
+    var section: String?,
+    var source: String?,
+    var subsection: String?,
+    var title: String?,
+    var type: String?,
+    var updated: String?,
+    var uri: String?,
+    var url: String?,
+    var id: Long?
+
+){
+    object DbConstants {
+        const val EMPTY_STRING = ""
+        const val EMPTY_INT: Long = 0
+    }
+    constructor() : this(EMPTY_STRING,EMPTY_STRING,EMPTY_STRING,EMPTY_STRING,EMPTY_STRING,EMPTY_STRING,EMPTY_STRING,EMPTY_STRING,
+        EMPTY_STRING,EMPTY_STRING,EMPTY_STRING,EMPTY_STRING,EMPTY_INT)
 }

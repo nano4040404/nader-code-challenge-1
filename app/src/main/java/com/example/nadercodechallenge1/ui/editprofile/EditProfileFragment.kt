@@ -13,18 +13,18 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.nadercodechallenge1.R
-import com.example.nadercodechallenge1.internal.Utils.ValidationManager
 import com.example.nadercodechallenge1.databinding.FragmentEditProfileBinding
+import com.example.nadercodechallenge1.internal.Utils.ValidationManager
 import com.example.nadercodechallenge1.ui.*
+import com.example.nadercodechallenge1.ui.base.DefaultFragment
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import es.dmoral.toasty.Toasty
 
 
-class EditProfileFragment : Fragment() {
+class EditProfileFragment : DefaultFragment() {
     private var _binding: FragmentEditProfileBinding? = null
     private val binding get() = _binding!!
     private lateinit var navController: NavController

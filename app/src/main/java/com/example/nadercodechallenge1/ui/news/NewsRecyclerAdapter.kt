@@ -4,18 +4,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nadercodechallenge1.R
-import com.example.nadercodechallenge1.data.db.current.ArticleEntry
-import com.example.nadercodechallenge1.data.network.responce.MostViewedSectionResponce
-import android.os.Bundle
-import androidx.core.os.bundleOf
+import com.example.nadercodechallenge1.data.db.current.CurrentArticleEntry
 
 
 class NewsRecyclerAdapter(
-    private val allArticles: List<ArticleEntry>,
+    private val allArticles: List<CurrentArticleEntry>,
     var navController: NavController
 ): RecyclerView.Adapter<NewsRecyclerAdapter.ViewHolder>() {
 

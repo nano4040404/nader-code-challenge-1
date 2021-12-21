@@ -1,9 +1,9 @@
 package com.example.nadercodechallenge1.internal.Utils
 
+import com.google.common.truth.Truth.assertThat
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
-import com.google.common.truth.Truth.assertThat
 
 
 @RunWith(JUnit4::class)

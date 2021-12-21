@@ -1,10 +1,10 @@
 package com.example.nadercodechallenge1.ui.signup
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.nadercodechallenge1.internal.Utils.ValidationManager
+import androidx.appcompat.app.AppCompatActivity
 import com.example.nadercodechallenge1.databinding.ActivitySignUpBinding
+import com.example.nadercodechallenge1.internal.Utils.ValidationManager
 import com.example.nadercodechallenge1.ui.addDataToPrefs
 import com.example.nadercodechallenge1.ui.getTextTrimed
 import es.dmoral.toasty.Toasty

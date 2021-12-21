@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.graphics.Bitmap
 import com.example.nadercodechallenge1.data.db.entity.AccountModel
-import kotlin.collections.HashMap
 
 
 fun Activity.addDataToPrefs(fields : HashMap<String,String>){

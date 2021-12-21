@@ -3,10 +3,7 @@ package com.example.nadercodechallenge1.data.db.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import androidx.room.TypeConverter
-import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
-import com.google.gson.reflect.TypeToken
 
 
 @Entity(tableName = "article_info")

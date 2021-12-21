@@ -1,21 +1,21 @@
 package com.example.nadercodechallenge1.ui.changepassword
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import com.example.nadercodechallenge1.internal.Utils.ValidationManager
 import com.example.nadercodechallenge1.databinding.FragmentChangePasswordBinding
+import com.example.nadercodechallenge1.internal.Utils.ValidationManager
 import com.example.nadercodechallenge1.ui.addDataToPrefs
+import com.example.nadercodechallenge1.ui.base.DefaultFragment
 import com.example.nadercodechallenge1.ui.getCurrentAccount
 import com.example.nadercodechallenge1.ui.getTextTrimed
 import es.dmoral.toasty.Toasty
 
-class ChangePasswordFragment : Fragment() {
+class ChangePasswordFragment : DefaultFragment() {
     private var _binding: FragmentChangePasswordBinding? = null
     private val binding get() = _binding!!
     private lateinit var navController: NavController
@@ -66,7 +66,7 @@ class ChangePasswordFragment : Fragment() {
             if(passwordfield && matchpasswordfield && oldPassConf){
                 val newAccount:HashMap<String,String> = HashMap()
                 newAccount["firstname"] = account.firstName!!
-                newAccount["lastname"] = account.LastName!!
+                newAccount["lastname"] = account.lastName!!
                 newAccount["email"] = account.email!!
                 newAccount["password"] = newPassword
 
