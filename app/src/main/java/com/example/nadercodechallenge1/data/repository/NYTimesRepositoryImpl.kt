@@ -51,6 +51,10 @@ class NYTimesRepositoryImpl @Inject constructor(
         nyTimesDataSource.downloadedCurrentArticle
     }
 
+    override suspend fun getOfflineArticleData(): LiveData<out List<CurrentArticleEntry>>{
+        return currentArticleDao.getArticleMetric()
+    }
+
 //    private fun isFetchCurrentNeeded(lastFetchedTime: ZonedDateTime):Boolean{
 //        val thirtyMinutesAgo = ZonedDateTime.now().minusMinutes(30)
 //        return lastFetchedTime.isBefore(thirtyMinutesAgo)

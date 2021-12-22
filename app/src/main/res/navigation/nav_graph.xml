@@ -69,4 +69,22 @@
             app:argType="string"
             android:defaultValue="https://euriskomobility.com/" />
     </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.nadercodechallenge1.ui.settings.SettingsFragment"
+        android:label="settings_fragment"
+        tools:layout="@layout/settings_fragment" >
+        <action
+            android:id="@+id/action_settingsFragment_to_moreSettingsFragment"
+            app:destination="@id/moreSettingsFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
+    <fragment
+        android:id="@+id/moreSettingsFragment"
+        android:name="com.example.nadercodechallenge1.ui.moresettings.MoreSettingsFragment"
+        android:label="more_settings_fragment"
+        tools:layout="@layout/more_settings_fragment" />
 </navigation>

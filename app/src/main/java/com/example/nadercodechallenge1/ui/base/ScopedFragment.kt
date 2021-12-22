@@ -21,4 +21,14 @@ abstract class ScopedFragment:Fragment(), CoroutineScope {
         super.onDestroy()
         job.cancel()
     }
+
+    override fun onPause() {
+        super.onPause()
+        job.cancel()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        job = Job()
+    }
 }

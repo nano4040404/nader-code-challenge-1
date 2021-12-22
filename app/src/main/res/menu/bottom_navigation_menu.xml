@@ -10,5 +10,10 @@
         android:enabled="true"
         android:icon="@drawable/btn_shape"
         android:title="More"/>
+    <item
+        android:id="@+id/settingsFragment"
+        android:enabled="true"
+        android:icon="@drawable/btn_shape"
+        android:title="Settings"/>
 
 </menu>

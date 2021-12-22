@@ -7,7 +7,9 @@ import com.example.nadercodechallenge1.data.db.NYTimesDatabase
 import com.example.nadercodechallenge1.data.network.*
 import com.example.nadercodechallenge1.data.repository.NYTimesRepository
 import com.example.nadercodechallenge1.data.repository.NYTimesRepositoryImpl
+import com.example.nadercodechallenge1.ui.more.MoreSettingsViewModel
 import com.example.nadercodechallenge1.ui.news.NewsViewModelFactory
+import com.example.nadercodechallenge1.ui.settings.SettingsViewModel
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,7 +18,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class AppModule {
+ class AppModule {
     val context = NYTimesApplication.applicationContext()
 
     @Provides
@@ -79,5 +81,16 @@ class AppModule {
     @Singleton
     fun getNewsViewModelFactory(): NewsViewModelFactory {
         return NewsViewModelFactory(getNYTimesRepository())
+    }
+
+    @Provides
+    @Singleton
+    fun getSettingsViewModel(): SettingsViewModel {
+        return SettingsViewModel(getNYTimesRepository())
+    }
+    @Provides
+    @Singleton
+    fun getMoreSettingsViewModel(): MoreSettingsViewModel {
+        return MoreSettingsViewModel()
     }
 }

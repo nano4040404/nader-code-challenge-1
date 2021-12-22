@@ -1,7 +1,6 @@
 package com.example.nadercodechallenge1.ui.viewarticlelink
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,7 +29,7 @@ class ArticleLinkFragment : DefaultFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = ArticleLinkFragmentBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
@@ -39,12 +38,11 @@ class ArticleLinkFragment : DefaultFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ArticleLinkViewModel::class.java)
+        viewModel = ViewModelProvider(this)[ArticleLinkViewModel::class.java]
 
         navController = Navigation.findNavController(view)
         val url = arguments?.getString("url")
         binding.articleLinkWebView.settings.javaScriptEnabled
-        Log.e("linkFragment",url.toString())
 
         binding.articleLinkWebView.webViewClient = object : WebViewClient() {
             override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {

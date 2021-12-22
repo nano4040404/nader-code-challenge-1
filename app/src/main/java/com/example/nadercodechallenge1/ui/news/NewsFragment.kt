@@ -36,8 +36,7 @@ class NewsFragment : ScopedFragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentNewsBinding.inflate(inflater, container, false)
-        val view = binding.root
-        return view
+        return binding.root
 
     }
 
@@ -45,7 +44,8 @@ class NewsFragment : ScopedFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModelFactory = AppModule().getNewsViewModelFactory()
-        viewModel = ViewModelProvider(this,viewModelFactory).get(NewsViewModel::class.java)
+
+        viewModel = ViewModelProvider(this,viewModelFactory)[NewsViewModel::class.java]
         binding.newsLottieAnimationView.setVisibility(true)
         navController = Navigation.findNavController(view)
         bindUI()
