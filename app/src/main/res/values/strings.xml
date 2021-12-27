@@ -22,4 +22,7 @@
 
     <string name="login">Login</string>
     <string name="donthave" >Dont have an account?</string>
+
+    <string name="changetheme">Change Current Theme</string>
+    <string name="choose_theme_text">Change Theme</string>
 </resources>

@@ -1,10 +1,10 @@
 package com.example.nadercodechallenge1.data.db.current
 
-import com.example.nadercodechallenge1.internal.Utils.AppConstants.EMPTY_INT
-import com.example.nadercodechallenge1.internal.Utils.AppConstants.EMPTY_STRING
+import com.example.nadercodechallenge1.utils.AppConstants.EMPTY_INT
+import com.example.nadercodechallenge1.utils.AppConstants.EMPTY_STRING
 
 data class CurrentArticleEntry(
-    var abstract: String?,
+    var abstract: String,
     var byline: String?,
     var nytdsection: String?,
     var publishedDate: String?,

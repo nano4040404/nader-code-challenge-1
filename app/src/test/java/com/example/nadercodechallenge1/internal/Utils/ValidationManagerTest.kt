@@ -1,5 +1,6 @@
 package com.example.nadercodechallenge1.internal.Utils
 
+import com.example.nadercodechallenge1.utils.ValidationManager
 import com.google.common.truth.Truth.assertThat
 import org.junit.Test
 import org.junit.runner.RunWith

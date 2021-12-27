@@ -14,7 +14,7 @@ interface CurrentArticleDao {
     fun insert(result: List<Result>)
 
     @Query("select * from article_info")
-    fun getArticleMetric(): LiveData<List<CurrentArticleEntry>>
+    fun getArticles(): LiveData<List<CurrentArticleEntry>>
 
     @Query("delete from article_info")
     fun deleteAllArticles()

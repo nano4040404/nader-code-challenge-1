@@ -26,7 +26,7 @@ class NYTimesRepositoryImpl @Inject constructor(
     override suspend fun getCurrentArticle(section: String, period: Int): LiveData<out List<CurrentArticleEntry>> {
         return withContext(Dispatchers.IO){
             initArticleData(section, period)
-            return@withContext currentArticleDao.getArticleMetric()
+            return@withContext currentArticleDao.getArticles()
         }
     }
 
@@ -47,12 +47,12 @@ class NYTimesRepositoryImpl @Inject constructor(
             section,period
         )
     }
-    private suspend fun fetchCurrentArticle(){
-        nyTimesDataSource.downloadedCurrentArticle
-    }
+//    private suspend fun fetchCurrentArticle(){
+//        nyTimesDataSource.downloadedCurrentArticle
+//    }
 
     override suspend fun getOfflineArticleData(): LiveData<out List<CurrentArticleEntry>>{
-        return currentArticleDao.getArticleMetric()
+        return currentArticleDao.getArticles()
     }
 
 //    private fun isFetchCurrentNeeded(lastFetchedTime: ZonedDateTime):Boolean{

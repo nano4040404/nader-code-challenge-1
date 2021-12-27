@@ -6,7 +6,7 @@
     app:startDestination="@id/newsFragment">
     <fragment
         android:id="@+id/newsFragment"
-        android:name="com.example.nadercodechallenge1.ui.news.NewsFragment"
+        android:name="com.example.nadercodechallenge1.presentation.ui.news.NewsFragment"
         android:label="fragment_news"
         tools:layout="@layout/fragment_news" >
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/moreFragment"
-        android:name="com.example.nadercodechallenge1.ui.more.MoreFragment"
+        android:name="com.example.nadercodechallenge1.presentation.ui.more.MoreFragment"
         android:label="fragment_more"
         tools:layout="@layout/fragment_more" >
         <action
@@ -46,22 +46,22 @@
     </fragment>
     <fragment
         android:id="@+id/aboutUsFragment"
-        android:name="com.example.nadercodechallenge1.ui.aboutus.AboutUsFragment"
+        android:name="com.example.nadercodechallenge1.presentation.ui.aboutus.AboutUsFragment"
         android:label="fragment_about_us"
         tools:layout="@layout/fragment_about_us" />
     <fragment
         android:id="@+id/changePasswordFragment"
-        android:name="com.example.nadercodechallenge1.ui.changepassword.ChangePasswordFragment"
+        android:name="com.example.nadercodechallenge1.presentation.ui.changepassword.ChangePasswordFragment"
         android:label="fragment_change_password"
         tools:layout="@layout/fragment_change_password" />
     <fragment
         android:id="@+id/editProfileFragment"
-        android:name="com.example.nadercodechallenge1.ui.editprofile.EditProfileFragment"
+        android:name="com.example.nadercodechallenge1.presentation.ui.editprofile.EditProfileFragment"
         android:label="fragment_edit_profile"
         tools:layout="@layout/fragment_edit_profile" />
     <fragment
         android:id="@+id/articleLinkFragment"
-        android:name="com.example.nadercodechallenge1.ui.viewarticlelink.ArticleLinkFragment"
+        android:name="com.example.nadercodechallenge1.presentation.ui.viewarticlelink.ArticleLinkFragment"
         android:label="article_link_fragment"
         tools:layout="@layout/article_link_fragment" >
         <argument
@@ -71,7 +71,7 @@
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.example.nadercodechallenge1.ui.settings.SettingsFragment"
+        android:name="com.example.nadercodechallenge1.presentation.ui.settings.SettingsFragment"
         android:label="settings_fragment"
         tools:layout="@layout/settings_fragment" >
         <action
@@ -84,7 +84,7 @@
     </fragment>
     <fragment
         android:id="@+id/moreSettingsFragment"
-        android:name="com.example.nadercodechallenge1.ui.moresettings.MoreSettingsFragment"
+        android:name="com.example.nadercodechallenge1.presentation.ui.moresettings.MoreSettingsFragment"
         android:label="more_settings_fragment"
         tools:layout="@layout/more_settings_fragment" />
 </navigation>

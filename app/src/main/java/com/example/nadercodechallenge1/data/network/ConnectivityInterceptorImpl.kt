@@ -22,11 +22,6 @@ class ConnectivityInterceptorImpl @Inject constructor(
         return chain.proceed(chain.request())
     }
 
-//    private fun isOnline():Boolean {
-//        val connectivityManager = appContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-//        val networkInfo = connectivityManager.activeNetworkInfo
-//        return  networkInfo !=null && networkInfo.isConnected
-//    }
 fun isNetworkAvailable(context: Context) =
         (context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager).run {
             getNetworkCapabilities(activeNetwork)?.run {
